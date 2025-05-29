@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asion Reader</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="flappylevi.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="scripts/loadPages.js" defer></script>
+    <script src="scripts/flappylevi.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <a href="index.html" class="logo">AsiSeaker</a>
+        <div class="burger-menu">☰</div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle">Catalog</a>
+              <ul class="dropdown-content">
+                <li><a onclick="showCatalogs('manga')">Манга</a></li>
+                <li><a onclick="showCatalogs('manhwa')">Манхва</a></li>
+                <li><a onclick="showCatalogs('manhua')">Маньхуа</a></li>
+                <li><a onclick="showCatalogs('ranobe')">Ранобе</a></li>
+                <li><a onclick="showCatalogs('novel')">Новели</a></li>
+              </ul>
+            </li>
+            <li><a onclick="ShowBlog()">Blog</a></li>
+            <li><a onclick="startGameButton()">Game</a></li>
+            <li><a onclick="aboutSite()">About</a></li>
+            <li id="register"><a onclick="registerUser()">Register</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1>Ласкаво просимо до AsiSeaker!</h1>
+        <p id="name">Раді вас бачити користувачу!</p>
+        <div class="hero-buttons">
+          <a onclick="aboutSite()" class="btn secondary">Дізнатись більше</a>
+        </div>
+      </div>
+    </section>
+
+    <div id="manga-details"></div>
+
+    <section id="content">
+      <p>Манга</p>
+      <div id="manga-list"></div>
+      <p>Манхва</p>
+      <div id="manhwa-list"></div>
+      <p>Маньхуа</p>
+      <div id="manhua-list"></div>
+      <p>Ранобе</p>
+      <div id="ranobe-list"></div>
+      <p>Новели</p>
+      <div id="novel-list"></div>
+    </section>
+
+    <section id="about"></section>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Розробники</h3>
+          <p>Буковеська Каріна <br />Богач Надія <br />Гараздюк Іван</p>
+          <div class="social-links">
+            <a aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+            <a aria-label="Discord"><i class="fab fa-discord"></i></a>
+            <a aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Навігація</h4>
+          <ul>
+            <li><a href="index.html">Головна</a></li>
+            <li><a onclick="ShowBlog()">Блог</a></li>
+            <li><a href="#game">Ігри</a></li>
+            <li><a onclick="aboutSite()">Про нас</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Каталог</h4>
+          <ul>
+            <li><a onclick="showCatalogs('manga')">Манга</a></li>
+            <li><a onclick="showCatalogs('manhwa')">Манхва</a></li>
+            <li><a onclick="showCatalogs('manhua')">Маньхуа</a></li>
+            <li><a onclick="showCatalogs('ranobe')">Ранобе</a></li>
+            <li><a onclick="showCatalogs('novel')">Новели</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Контакти</h4>
+          <ul>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a
+                href="/cdn-cgi/l/email-protection"
+                class="__cf_email__"
+                data-cfemail="dab9b5b4aebbb9ae9abba9b3a9bfbbb1bfa8f4b9b5b7"
+                >qwerty@gmail.com</a
+              >
+            </li>
+            <li><i class="fas fa-phone"></i> +380 (XX) XXX-XX-XX</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 AsiSeaker. Усі права захищені.</p>
+        <div class="legal-links">
+          <a href="#">Умови використання</a>
+          <a href="#">Політика конфіденційності</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
