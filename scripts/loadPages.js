@@ -328,10 +328,6 @@ const registerUser = () => {
     document.body.removeChild(registerForm);
     let name = localStorage.getItem("username");
     document.getElementById("name").innerHTML = `Привіт, ${name}!`;
-    const registerElem = document.getElementById("register");
-    if (registerElem) {
-      registerElem.remove();
-    }
     const accountLi = document.getElementById("account");
     if (accountLi) {
       accountLi.innerHTML = `<a onclick="localStorage.removeItem('username'); location.reload();">Exit</a>`;
