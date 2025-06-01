@@ -4,8 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("username")) {
     let name = localStorage.getItem("username");
     document.getElementById("name").innerHTML = `Привіт, ${name}!`;
-    if (document.getElementById("register")) {
-      document.getElementById("register").remove();
+    const accountLi = document.getElementById("account");
+    if (accountLi) {
+      accountLi.innerHTML = `<a onclick="localStorage.removeItem('username'); location.reload();">Exit</a>`;
     }
   }
 
@@ -37,7 +38,7 @@ const showCategory = (jsonName, nameOfPlace) => {
         <h3>${manga.name.slice(0, 40)}</h3>
       `;
 
-      if (window.innerWidth < 750) {
+      if (window.innerWidth < 875) {
         mangaItem.style.cursor = "pointer";
         mangaItem.addEventListener("click", () => {
           showDetails(jsonName, cachedData.indexOf(manga));

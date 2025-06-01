@@ -55,7 +55,7 @@ nav#nav a {
   font-weight: 500;
   padding: 0.5rem 0;
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
 }
 
@@ -77,6 +77,96 @@ nav#nav a::after {
 nav#nav a:hover::after {
   width: 100%;
 }
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #f8f2ec;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3a3226;
+  letter-spacing: 1px;
+  font-family: "Georgia", serif;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.burger-menu {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #5a5248;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: #8b7355;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #8b7355;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
 
 .dropdown {
   position: relative;
@@ -85,39 +175,88 @@ nav#nav a:hover::after {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  min-width: 200px;
+  background-color: #f8f2ec;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+  z-index: 1;
   padding: 0.5rem 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-  animation: fadeIn 0.3s ease;
+}
+
+.dropdown-content li {
+  padding: 0.5rem 1rem;
 }
 
 .dropdown-content a {
-  display: block;
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
-  color: #5a5248;
-  transition: all 0.2s ease;
+  font-size: 1rem;
 }
 
-.dropdown-content a:hover {
-  background-color: #f5f5f5;
-  color: #8b7355;
-  padding-left: 1.2rem;
+@media (max-width: 1200px) {
+  .header-container {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+}
+@media (max-width: 1074px) {
+  .header-container {
+    gap: 1rem;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .header-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
 }
 
-.dropdown-content a::after {
-  display: none;
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e0d6c8;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    display: none;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: none;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
 }
 
 @keyframes fadeIn {
@@ -684,7 +823,7 @@ button:hover {
   border-bottom: 2px solid #e0d7cc;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 989px) {
   .product-main {
     flex-direction: column;
     gap: 2rem;
@@ -1470,7 +1609,7 @@ footer {
   }
 
   .manga-item img {
-    height: 220px;
+    height: auto;
   }
 
   .footer-container {
@@ -1491,10 +1630,15 @@ footer {
   }
 
   .manga-item img {
-    height: 240px;
+    height: auto;
   }
 
   .footer-container {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 575px) {
+  .manga-item img {
+    height: auto;
   }
 }

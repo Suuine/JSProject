@@ -12,7 +12,7 @@
 }
 
 #closeButton {
-  position: absolute;
+  position: relative;
   top: 30px;
   right: 380px;
   padding: 10px 20px;
@@ -133,10 +133,30 @@
   background-color: #ffb6e1;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 875px) {
   #closeButton {
     position: absolute;
-    top: 105px;
-    right: 140px;
+    align-items: center;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@media (min-width: 876px) and (max-width: 1199px) {
+  #closeButton {
+    position: absolute;
+    align-items: center;
+    top: 4%;
+    left: 81%;
+    transform: translateX(-50%);
+  }
+}
+@media (min-width: 1200px) {
+  #closeButton {
+    position: absolute;
+    align-items: center;
+    top: 4%;
+    left: 70%;
+    transform: translateX(-50%);
   }
 }
