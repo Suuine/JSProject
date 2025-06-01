@@ -494,7 +494,7 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 10;
   border-radius: 15px;
   padding: 20px;
   box-sizing: border-box;
